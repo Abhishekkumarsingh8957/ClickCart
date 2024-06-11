@@ -1,3 +1,4 @@
+
 import { comparePassword, hashPassword } from "../helpers/authHelper.js";
 import userModel from "../models/userModel.js";
 import JWT from "jsonwebtoken";
@@ -95,4 +96,16 @@ try {
             error
         })
     }
+
+export const registerController = () => {};
+
+//test controller
+export const testController = (req, res) => {
+  try {
+    res.send("Protected Routes");
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+
 };
