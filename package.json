@@ -1,0 +1,20 @@
+{
+  "name": "clickcart",
+  "version": "1.0.0",
+  "description": "ClickCart is your ultimate online shopping destination, offering a vast selection of products ranging from electronics and fashion to home goods and more. Our mission is to provide a convenient and enjoyable shopping experience through a user-friendly platform, competitive pricing, and fast delivery. At ClickCart, we prioritize customer satisfaction with top-notch service and secure transactions, ensuring that you can shop with confidence and ease. Whether you're looking for the latest trends or everyday essentials, ClickCart has everything you need in one place.",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "Coders2k25",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "nodemon": "^3.1.3"
+  }
+}
