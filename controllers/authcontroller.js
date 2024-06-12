@@ -95,8 +95,12 @@ try {
             message:'Error in login ',
             error
         })
+
 }
 };
+
+
+
 
 //test controller
 export const testController = (req, res) => {
