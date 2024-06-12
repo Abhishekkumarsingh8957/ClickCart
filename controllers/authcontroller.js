@@ -96,8 +96,9 @@ try {
             error
         })
     }
+}
 
-export const registerController = () => {};
+
 
 //test controller
 export const testController = (req, res) => {
