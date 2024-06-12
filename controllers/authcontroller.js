@@ -95,8 +95,10 @@ try {
             message:'Error in login ',
             error
         })
-    }
+
 }
+};
+
 
 
 
@@ -109,4 +111,4 @@ export const testController = (req, res) => {
     res.send({ error });
   }
 
-};
+}
