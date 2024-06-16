@@ -101,3 +101,17 @@
   align-items: center;
   justify-content: center;
 }
+
+
+/* ========================================= */
+/* =========Register ========= */
+
+.form-container{
+  display:flex;
+  align-items:center;
+  justify-content: center;
+  height:70vh;
+  flex-direction: column;
+  
+}
+ 
