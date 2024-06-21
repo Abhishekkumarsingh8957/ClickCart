@@ -16,27 +16,31 @@ import CreateProduct from "./pages/Admin/CreateProduct";
 import Users from "./pages/Admin/Users";
 import Orders from "./pages/user/Orders";
 import Profile from "./pages/user/Profile";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 function App() {
   return (
     <>
+      <ToastContainer />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/dashboard" element={<PrivateRoute/>}>
-        <Route path="user" element={<Dashboard/>} />
-        <Route path="user/profile" element={<Orders/>} />
-        <Route path="user/orders" element={<Profile/>} />
+        <Route path="/dashboard" element={<PrivateRoute />}>
+          <Route path="user" element={<Dashboard />} />
+          <Route path="user/profile" element={<Orders />} />
+          <Route path="user/orders" element={<Profile />} />
         </Route>
-        <Route path="/dashboard" element={<AdminRoute/>}>
-        <Route path="admin" element={<AdminDashboard/>} />
-        <Route path="admin/create-category" element={<CreateCategory/>} />
-        <Route path="admin/create-product" element={<CreateProduct/>} />
-        <Route path="admin/users" element={<Users/>} />
+        <Route path="/dashboard" element={<AdminRoute />}>
+          <Route path="admin" element={<AdminDashboard />} />
+          <Route path="admin/create-category" element={<CreateCategory />} />
+          <Route path="admin/create-product" element={<CreateProduct />} />
+          <Route path="admin/users" element={<Users />} />
+        </Route>
 
-        </Route>
-        
-         <Route path="/register" element={<Register />} />
-         <Route path="/forgot-password" element={<ForgotPassword />} />
-         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/policy" element={<Policy />} />
