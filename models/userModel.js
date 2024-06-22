@@ -31,7 +31,7 @@ const userSchema = new mongoose.Schema({
 
       answer:{
         type:String,
-        required:true,
+        required:true
       }
 ,
       role:{
