@@ -21,6 +21,7 @@ import UpdateProduct from "./pages/Admin/UpdateProduct";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Search from './pages/Search';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
       <ToastContainer />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/search" element={<Search />} />
         <Route path="/dashboard" element={<PrivateRoute />}>
           <Route path="user" element={<Dashboard />} />
           <Route path="user/profile" element={<Orders />} />
