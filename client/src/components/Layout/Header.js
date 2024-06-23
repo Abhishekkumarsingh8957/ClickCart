@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import { useAuth } from "../../context/auth";
+import SearchInput from "../Form/SearchInput";
 
 const Header = () => {
    const [auth, setAuth] = useAuth();
@@ -34,6 +35,7 @@ const Header = () => {
               🛒 Ecommerce App
             </Link>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+               <SearchInput />
               <li className="nav-item">
                 <NavLink to="/" className="nav-link ">
                   Home
