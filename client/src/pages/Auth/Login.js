@@ -4,6 +4,7 @@ import axios from "axios";
 import { useNavigate,useLocation } from "react-router-dom";
 import "../../styles/AuthStyles.css";
 import { useAuth } from "../../context/auth";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -21,7 +22,7 @@ const Login = () => {
         password,
       });
       if (res && res.data.success) {
-      alert(`${res.data.message}`);
+        toast.success(res.data && res.data.message);
         setAuth({
           ...auth,
           user: res.data.user,
@@ -30,11 +31,11 @@ const Login = () => {
         localStorage.setItem("auth", JSON.stringify(res.data));
         navigate(location.state ||"/");
       } else {
-       alert(`${res.data.message}`);
+        toast.error(res.data.message);
       }
     } catch (error) {
       console.log(error);
-      alert("error");
+      toast.error("Something went wrong");
     }
   };
   return (
