@@ -1,12 +1,11 @@
-import React ,{ useState } from 'react'
-import Layout from '../../components/Layout/Layout'
+import React, { useState } from "react";
+import Layout from "../../components/Layout/Layout";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../../styles/AuthStyles.css";
 import { toast } from "react-toastify";
 
 const Register = () => {
-
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -15,18 +14,21 @@ const Register = () => {
   const [answer, setAnswer] = useState("");
   const navigate = useNavigate();
 
-   const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-     try {
-      const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/register`, {
-        name,
-        email,
-        password,
-        phone,
-        address,
-        answer,
-      });
+    try {
+      const res = await axios.post(
+        `${process.env.REACT_APP_API}/api/v1/auth/register`,
+        {
+          name,
+          email,
+          password,
+          phone,
+          address,
+          answer,
+        }
+      );
       if (res && res.data.success) {
         toast.success(res.data && res.data.message);
         navigate("/login");
@@ -39,15 +41,10 @@ const Register = () => {
     }
   };
 
-
   return (
-  
-         <Layout >
-
-      <div className="form-container ">
-
+    <Layout>
+      <div className="form-container" style={{ minHeight: "90vh" }}>
         <form onSubmit={handleSubmit}>
-
           <h4 className="title">REGISTER FORM</h4>
 
           <div className="mb-3">
@@ -59,7 +56,6 @@ const Register = () => {
               id="exampleInputEmail1"
               placeholder="Enter Your Name"
               required
-              
             />
           </div>
 
@@ -126,15 +122,10 @@ const Register = () => {
           <button type="submit" className="btn btn-primary">
             REGISTER
           </button>
-
         </form>
-
       </div>
-
     </Layout>
-   
-    
-  )
-}
+  );
+};
 
-export default Register
+export default Register;

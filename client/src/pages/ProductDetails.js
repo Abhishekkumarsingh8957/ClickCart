@@ -5,12 +5,12 @@ import { useParams, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useCart } from "../context/cart";
-
+import "../styles/ProductDetailsStyles.css";
 
 const ProductDetails = () => {
   const params = useParams();
   const navigate = useNavigate();
-   const [cart, setCart] = useCart();
+  const [cart, setCart] = useCart();
   const [product, setProduct] = useState({});
   const [relatedProducts, setRelatedProducts] = useState([]);
 
@@ -43,7 +43,7 @@ const ProductDetails = () => {
   };
   return (
     <Layout>
-      <div className="row container mt-2">
+      <div className="row container product-details">
         <div className="col-md-6">
           <img
             src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${product._id}`}
@@ -59,10 +59,10 @@ const ProductDetails = () => {
           <h6>Description : {product.description}</h6>
           <h6>Price : {product.price}</h6>
           <h6>Category : {product?.category?.name}</h6>
-          <button class="btn btn-secondary ms-1" >ADD TO CART</button>
+          <button class="btn btn-secondary ms-1">ADD TO CART</button>
         </div>
       </div>
-       <hr />
+      <hr />
       <div className="row container">
         <h6>Similar Products</h6>
         {relatedProducts.length < 1 && (
@@ -86,21 +86,21 @@ const ProductDetails = () => {
                 >
                   More Details
                 </button>
-                <button class="btn btn-secondary ms-1"   onClick={() => {
-                      setCart([...cart, p]);
-                      localStorage.setItem(
-                        "cart",
-                        JSON.stringify([...cart, p])
-                      );
-                      toast.success("Item Added to cart");
-                    }} >
-                    ADD TO CART</button>
+                <button
+                  class="btn btn-secondary ms-1"
+                  onClick={() => {
+                    setCart([...cart, p]);
+                    localStorage.setItem("cart", JSON.stringify([...cart, p]));
+                    toast.success("Item Added to cart");
+                  }}
+                >
+                  ADD TO CART
+                </button>
               </div>
             </div>
           ))}
         </div>
       </div>
-    
     </Layout>
   );
 };
