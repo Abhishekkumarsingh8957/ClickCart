@@ -9,12 +9,11 @@ import axios from "axios";
 import { Checkbox, Radio } from "antd";
 import { Prices } from "../components/Prices";
 import { useCart } from "../context/cart";
-
-
+import "../styles/Homepage.css";
 
 const HomePage = () => {
-   const navigate = useNavigate();
-    const [cart, setCart] = useCart();
+  const navigate = useNavigate();
+  const [cart, setCart] = useCart();
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [checked, setChecked] = useState([]);
@@ -26,7 +25,9 @@ const HomePage = () => {
   //get all cat
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/category/get-category`);
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API}/api/v1/category/get-category`
+      );
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -43,7 +44,9 @@ const HomePage = () => {
   const getAllProducts = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/product/product-list/${page}`);
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API}/api/v1/product/product-list/${page}`
+      );
       setLoading(false);
       setProducts(data.products);
     } catch (error) {
@@ -55,7 +58,9 @@ const HomePage = () => {
   //getTOtal COunt
   const getTotal = async () => {
     try {
-      const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/product/product-count`);
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API}/api/v1/product/product-count`
+      );
       setTotal(data?.total);
     } catch (error) {
       console.log(error);
@@ -70,7 +75,9 @@ const HomePage = () => {
   const loadMore = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/product/product-list/${page}`);
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API}/api/v1/product/product-list/${page}`
+      );
       setLoading(false);
       setProducts([...products, ...data?.products]);
     } catch (error) {
@@ -100,10 +107,13 @@ const HomePage = () => {
   //get filterd product
   const filterProduct = async () => {
     try {
-      const { data } = await axios.post(`${process.env.REACT_APP_API}/api/v1/product/product-filters`, {
-        checked,
-        radio,
-      });
+      const { data } = await axios.post(
+        `${process.env.REACT_APP_API}/api/v1/product/product-filters`,
+        {
+          checked,
+          radio,
+        }
+      );
       setProducts(data?.products);
     } catch (error) {
       console.log(error);
@@ -111,6 +121,7 @@ const HomePage = () => {
   };
   return (
     <Layout title={"ALl Products - Best offers "}>
+<<<<<<< HEAD
         {/* banner image */}
         <img
         src="/images/banner.png"
@@ -119,6 +130,8 @@ const HomePage = () => {
         width={"100%"}
       />
       {/* banner image */}
+=======
+>>>>>>> 5bcf76bff1b5dd5540084f36bdeaf6173c076f3b
       <div className="container-fluid row mt-3 home-page">
         <div className="col-md-3 filters">
           <h4 className="text-center">Filter By Category</h4>
@@ -175,18 +188,33 @@ const HomePage = () => {
                   <p className="card-text ">
                     {p.description.substring(0, 60)}...
                   </p>
+<<<<<<< HEAD
                   <div className="card-name-price">
                   <button class="btn btn-info ms-1" onClick={() => navigate(`/product/${p.slug}`)}>More Details</button>
                   <button class="btn btn-dark ms-1"
                       onClick={() => {
+=======
+                  <p className="card-text"> $ {p.price}</p>
+                  <button
+                    class="btn btn-primary ms-1"
+                    onClick={() => navigate(`/product/${p.slug}`)}
+                  >
+                    More Details
+                  </button>
+                  <button
+                    class="btn btn-secondary ms-1"
+                    onClick={() => {
+>>>>>>> 5bcf76bff1b5dd5540084f36bdeaf6173c076f3b
                       setCart([...cart, p]);
                       localStorage.setItem(
                         "cart",
                         JSON.stringify([...cart, p])
                       );
                       toast.success("Item Added to cart");
-                    }}>
-                  ADD TO CART</button>
+                    }}
+                  >
+                    ADD TO CART
+                  </button>
                 </div>
                 </div>
               </div>

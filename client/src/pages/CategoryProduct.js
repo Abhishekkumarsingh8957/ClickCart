@@ -97,5 +97,8 @@ const CategoryProduct = () => {
   );
 };
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5bcf76bff1b5dd5540084f36bdeaf6173c076f3b
 export default CategoryProduct;
