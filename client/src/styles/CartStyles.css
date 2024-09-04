@@ -1,5 +1,5 @@
 .cart-page {
-<<<<<<< HEAD
+
     margin-top: 64px;
   }
   
@@ -28,10 +28,8 @@
     text-align: center;
     /* margin-top: -140px !important; */
   }
-=======
-  margin-top: 64px;
-}
 
+ 
 .cart-page h1 {
   padding: 15px !important;
   font-family: "roboto", sans-serif;
@@ -57,4 +55,4 @@
   text-align: center;
   /* margin-top: -140px !important; */
 }
->>>>>>> 5bcf76bff1b5dd5540084f36bdeaf6173c076f3b
+
